@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import random
 
 st.header('Texnik pasporti orqali avtomobilning bozor narxini aniqlash')
 def load_image(image_file):
@@ -13,6 +14,7 @@ if uploaded_files:
 for uploaded_file in uploaded_files:
     st.image(load_image(uploaded_file),width=300)
 
+predicted_price = random.randrange(3000,5000,100)
 
 # Add a selectbox to the sidebar:
 yoqilgi = st.sidebar.selectbox(
@@ -30,7 +32,6 @@ if st.sidebar.button('Get prediction') and uploaded_files:
      st.write("Avtomobil rangi: Oq beliy")
      st.write("Avtomobil yoqilg'i turi: ",yoqilgi)
      st.write("Ishlab chiqarilgan yili: 2007")
-     st.subheader("Avtomobilingizga tavsiya qilingan narx: 3000 dollar")
-
+     st.subheader(f"Avtomobilingizga tavsiya qilingan narx: {predicted_price} dollar")
 else:
     st.subheader("Iltimos texpasportni yuklang!")
