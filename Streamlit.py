@@ -15,7 +15,7 @@ for uploaded_file in uploaded_files:
 
 
 # Add a selectbox to the sidebar:
-add_selectbox = st.sidebar.selectbox(
+yoqilgi = st.sidebar.selectbox(
     "Avtomobil yoqilg'i turini korsating",
     ('Benzin', 'Gaz', 'Dizel')
 )
@@ -23,8 +23,14 @@ add_selectbox = st.sidebar.selectbox(
 probeg = st.sidebar.number_input(
     "Bosib o'tgan masofasini kiriting"
 )
-st.write("Bosib o'tgan masofasi: ",probeg)
 
+if st.sidebar.button('Get prediction') and uploaded_files:
+     st.write("Avtomobil modeli: Chevrolet Matiz")
+     st.write("Bosib o'tgan masofasi:",probeg)
+     st.write("Avtomobil rangi: Oq beliy")
+     st.write("Avtomobil yoqilg'i turi: ",yoqilgi)
+     st.write("Ishlab chiqarilgan yili: 2007")
+     st.subheader("Avtomobilingizga tavsiya qilingan narx: 3000 dollar")
 
-if st.sidebar.button('Get prediction'):
-     st.write("Hozircha hech nima yo'q")
+else:
+    st.subheader("Iltimos texpasportni yuklang!")
